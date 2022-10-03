@@ -19,6 +19,7 @@ class Widget : public QWidget
     virtual void mouseReleaseEvent(QMouseEvent *event);
 
     bool isPointInside(QPoint &p);
+    bool vectorProdAlgorithm(QPoint &p);
 
 public:
     Widget(QWidget *parent = 0);

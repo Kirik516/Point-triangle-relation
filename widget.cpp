@@ -31,6 +31,11 @@ void Widget::mouseReleaseEvent(QMouseEvent *event)
     this->update();
 }
 
+bool Widget::isPointInside(QPoint &p)
+{
+    return vectorProdAlgorithm(p);
+}
+
 // Ax + By + C = 0
 // A1x + B1y + C1 = A2x + B2y + C2
 // A1 B1
@@ -54,6 +59,30 @@ bool Widget::isPointInside(QPoint &p)
         return false;
     }
     return true;
+}
+
+// i  j   k
+// 33 -14 0
+// 150 40 0
+// 33 * 40 - 150 * 40 = 1320 - 6000 = -4680
+bool Widget::vectorProdAlgorithm(QPoint &p)
+{
+    int rightTripleCount = 0;
+    int z;
+    int size = this->triangle.size();
+    for(int i = 0; i < size; i++)
+    {
+        QPoint pointVector(p.x() - this->triangle[i].x(), p.y() - this->triangle[i].y());
+        QPoint edgeVector(this->triangle[(i + 1)%size].x() - this->triangle[i].x(),
+                        this->triangle[(i + 1)%size].y() - this->triangle[i].y());
+        z = pointVector.x() * edgeVector.y() - pointVector.y() * edgeVector.x();
+        rightTripleCount += (z < 0);
+    }
+    if (rightTripleCount == size)
+    {
+        return true;
+    }
+    return false;
 }
 
 Widget::Widget(QWidget *parent)
