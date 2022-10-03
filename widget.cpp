@@ -41,20 +41,20 @@ bool Widget::isPointInside(QPoint &p)
 // A1 B1
 // A2 B2
 // A1*B2 - A2*B1
-bool Widget::isPointInside(QPoint &p)
+bool Widget::lineCrossAlgorithm(QPoint &p)
 {
     int edgeCrossCount = 0;
-    int dis;
+    int dim;
     QPoint traceNorm(0, 0 - p.y());
     int size = this->triangle.size();
     for(int i = 0; i < size; i++)
     {
         QPoint edgeNorm(this->triangle[i].y() - this->triangle[(i + 1)%size].y(),
                         this->triangle[(i + 1)%size].x() - this->triangle[i].x());
-        dis = traceNorm.x() * edgeNorm.y() - edgeNorm.x() * traceNorm.y();
-        edgeCrossCount += (dis != 0);
+        dim = traceNorm.x() * edgeNorm.y() - edgeNorm.x() * traceNorm.y();
+        edgeCrossCount += (dim < 0);
     }
-    if (edgeCrossCount == 0 || edgeCrossCount%2 == 0)
+    if (edgeCrossCount == 0 || edgeCrossCount%2 != 0)
     {
         return false;
     }
