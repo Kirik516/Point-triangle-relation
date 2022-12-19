@@ -16,9 +16,11 @@ QMAKE_CXXFLAGS += -std=c++11
 SOURCES += main.cpp\
         widget.cpp \
     paint-state.cpp \
+    paint-stratagy/line-cross-paint.cpp
 
 HEADERS  += widget.h \
     paint-state.h \
     paint-opetations/paint-operation.h \
     paint-stratagy/paint-stratagy.h \
+    paint-stratagy/line-cross-paint.h \
     paint-opetations/vector-product-operations.h
