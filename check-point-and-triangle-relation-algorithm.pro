@@ -19,3 +19,5 @@ SOURCES += main.cpp\
 
 HEADERS  += widget.h \
     paint-state.h \
+    paint-opetations/paint-operation.h \
+    paint-stratagy/paint-stratagy.h \
