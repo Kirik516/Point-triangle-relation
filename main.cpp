@@ -1,8 +1,6 @@
 #include "widget.h"
 #include "paint-stratagy/vector-product-paint.h"
 
-#include <memory>
-
 #include <QApplication>
 #include <QPushButton>
 #include <QRadioButton>
@@ -46,6 +44,7 @@ int main(int argc, char *argv[])
     vectorProduct->setChecked(true);
     QRadioButton *lineCross = new QRadioButton("Line cross algorithm", &w);
     lineCross->setDisabled(true);
+    lineCross->setToolTip("Coming soon");
     QPushButton *exitPush = new QPushButton("Exit", &w);
     QObject::connect(exitPush, &QPushButton::clicked, [&a]() {a.exit();});
 
