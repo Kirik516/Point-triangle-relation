@@ -21,3 +21,4 @@ HEADERS  += widget.h \
     paint-state.h \
     paint-opetations/paint-operation.h \
     paint-stratagy/paint-stratagy.h \
+    paint-opetations/vector-product-operations.h
