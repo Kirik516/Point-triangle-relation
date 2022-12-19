@@ -14,6 +14,8 @@ TEMPLATE = app
 QMAKE_CXXFLAGS += -std=c++11
 
 SOURCES += main.cpp\
-        widget.cpp
+        widget.cpp \
+    paint-state.cpp \
 
-HEADERS  += widget.h
+HEADERS  += widget.h \
+    paint-state.h \
